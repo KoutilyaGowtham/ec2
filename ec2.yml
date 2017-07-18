@@ -1,0 +1,11 @@
+---
+ - hosts: local
+   connection: ssh
+   gather_facts: false
+   remote_user: user
+   become: true
+   become_method: sudo
+   pre_tasks:
+    - include_vars: ec2_vars/{{sample}}.yml
+   roles:
+    - provision-ec2
